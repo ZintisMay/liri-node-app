@@ -9,6 +9,7 @@ var keys = require('./keys.js');
 var Twitter = require('twitter');
 
 
+
 switch(command){
 	case "twitter":
 //spit out 20 tweets
@@ -19,12 +20,9 @@ switch(command){
 	var c = keys.twitterKeys.access_token_key;
 	var d = keys.twitterKeys.access_token_secret;
 
-	console.log(a + b + c + d);
-
 
 
 	var client = new Twitter({
-
 		consumer_key: a,
 		consumer_secret: b,
 		access_token_key: c,
@@ -34,8 +32,21 @@ switch(command){
 	var params = {screen_name: 'ZintisMay'};
 
 	client.get('statuses/user_timeline', params, function(error, tweets, response){
-		if(!error) {console.log(tweets)}
+		if(!error) {
+			for (x = 0; x < 10; x++){
+				console.log("--------------------------");
+				console.log(tweets[x].text);
+				console.log(tweets[x].user.created_at);
+
+			}
+			
+		}
 	});
+	// 	client.get('statuses/user_timeline', count: 10, function(error, tweets, response){
+	// 	if(!error) {console.log(tweets)}
+	// });
+
+
 
 		break;
 
