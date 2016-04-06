@@ -33,13 +33,12 @@ if(command == null){
 		fs.readFile('random.txt', 'utf8', function(err,data){
 
 		output = data.split(',');
-		log(output);
+	
 
 			//default switch reference
-			log(output);
+			
 			command = output;
-			logger();
-			log(command);
+			
 
 		theSwitch(command[0]);
 		fs.appendFile('random.txt', ", " + command[0], function(err){});
@@ -156,10 +155,10 @@ function theSwitch(x){
 			}
 
 			//spit out movie data
+			// logger("-");
+			// 		console.log(movies2)
 			logger("-");
-					console.log(movies2)
-			logger("-");
-				    console.log('%s (%d) %d/10 Language: %s Country: %s', movies2.title, movies2.year, movies2.imdb.rating, movies2.lang, movies2.countries[0]);
+				    console.log('%s (%d) %d/10 Country: %s', movies2.title, movies2.year, movies2.imdb.rating, movies2.countries[0]);
 				    logger();
 				    console.log(movies2.plot);
 			logger("-");
